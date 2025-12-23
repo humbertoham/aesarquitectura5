@@ -14,7 +14,7 @@ import {
 
 /**
  * Si tu proyecto requiere metadata en App Router, normalmente page.tsx es Server Component.
- * Aquí usamos "use client" porque incluye modal/lightbox.
+ * Aquí usamos "ufse client" porque incluye modal/lightbox.
  * Si quieres metadata real f en Next, pásame tu layout/estructura y lo separamos (Server + Client).
  */
 
