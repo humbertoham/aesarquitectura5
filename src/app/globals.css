@@ -1,0 +1,464 @@
+@import "tailwindcss";
+
+/* =========================
+   AES / Arquitectura - Global
+   Blanco/Negro, minimal, editorial
+   ========================= */
+
+/* (Opcional) Si usas next/font, puedes borrar @import */
+
+:root {
+  /* Colores base */
+  --bg: #ffffff;
+  --fg: #0b0b0b;
+  --muted: #6b6b6b;
+  --muted-2: #9a9a9a;
+  --line: rgba(0, 0, 0, 0.12);
+  --line-strong: rgba(0, 0, 0, 0.2);
+
+  /* Superficies */
+  --surface: #ffffff;
+  --surface-2: #f6f6f6;
+
+  /* Tipografía */
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Espaciado / layout */
+  --container: 1120px;
+  --radius: 18px;
+  --radius-sm: 12px;
+
+  /* Sombra sutil */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+
+  /* Interacción */
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --dur: 220ms;
+
+  /* Accento (mantén negro; úsalo en hover/botones) */
+  --accent: #0b0b0b;
+
+  /* Fondo con grid ultra sutil (arquitectura vibes) */
+  --grid: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  --grid-size: 56px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Si quieres mantenerlo siempre blanco, puedes borrar este bloque */
+  :root {
+    --bg: #0b0b0b;
+    --fg: #ffffff;
+    --muted: rgba(255, 255, 255, 0.72);
+    --muted-2: rgba(255, 255, 255, 0.5);
+    --line: rgba(255, 255, 255, 0.14);
+    --line-strong: rgba(255, 255, 255, 0.24);
+    --surface: #0f0f0f;
+    --surface-2: #141414;
+    --shadow: 0 12px 38px rgba(0, 0, 0, 0.5);
+    --accent: #ffffff;
+    --grid: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  }
+}
+
+/* Reset moderno */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.55;
+
+  /* grid de fondo muy sutil */
+  background-image: var(--grid);
+  background-size: var(--grid-size) var(--grid-size);
+  background-position: center;
+}
+
+/* Selección */
+::selection {
+  background: rgba(0, 0, 0, 0.14);
+}
+@media (prefers-color-scheme: dark) {
+  ::selection {
+    background: rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Imágenes y media */
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+
+
+/* Inputs */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+/* =========================
+   Tipografía (arquitectura/editorial)
+   ========================= */
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.6rem 0;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 3.8vw, 3.25rem);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+}
+
+p {
+  margin: 0 0 1rem 0;
+  color: var(--fg);
+}
+p.muted {
+  color: var(--muted);
+}
+
+/* Pequeños detalles de “label” */
+.kicker {
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* =========================
+   Layout helpers
+   ========================= */
+
+.container {
+  width: min(100% - 2rem, var(--container));
+  margin-inline: auto;
+}
+
+.section {
+  padding: clamp(3rem, 6vw, 5.5rem) 0;
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  width: 100%;
+}
+
+/* Cards para proyectos/servicios */
+.card {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: rgba(15, 15, 15, 0.72);
+  }
+}
+
+.card-pad {
+  padding: 1.25rem;
+}
+@media (min-width: 768px) {
+  .card-pad {
+    padding: 1.5rem;
+  }
+}
+
+/* Grid para listado de proyectos */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    gap: 1.25rem;
+  }
+}
+.grid-2 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.grid-3 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+@media (min-width: 900px) {
+  .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   Botones y elementos interactivos
+   ========================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line-strong);
+  transition: transform var(--dur) var(--ease),
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+  will-change: transform;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: transparent;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--fg);
+}
+.btn-ghost:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+@media (prefers-color-scheme: dark) {
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+.icon {
+  display: inline-block !important;   /* ← clave */
+  width: 1.1em;
+  height: 1.1em;
+  flex: 0 0 auto;
+  background: none;
+  stroke: currentColor;
+  background: transparent !important;
+}
+
+
+/* Focus visible (accesibilidad) */
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+/* =========================
+   Animaciones amigables con Framer Motion
+   ========================= */
+
+.motion-safe {
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+/* =========================
+   Utilidades pequeñas
+   ========================= */
+
+.rounded {
+  border-radius: var(--radius);
+}
+.rounded-sm {
+  border-radius: var(--radius-sm);
+}
+
+.border {
+  border: 1px solid var(--line);
+}
+
+.surface {
+  background: var(--surface);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.shadow {
+  box-shadow: var(--shadow);
+}
+
+/* Bloque “hero” con overlay sutil (útil para renders/fotos) */
+.hero-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02),
+    rgba(0, 0, 0, 0.12)
+  );
+  pointer-events: none;
+}
+@media (prefers-color-scheme: dark) {
+  .hero-media::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.12)
+    );
+  }
+}
+/* Skip link accesible (para "Saltar al contenido") */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  transform: translateY(-150%);
+  transition: transform 180ms var(--ease);
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: none;
+}
+
+.footer-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--muted);
+          font-size: 0.95rem;
+          transition: color 180ms var(--ease);
+        }
+
+        .footer-link:hover {
+          color: var(--fg);
+        }
+
+        @media (min-width: 900px) {
+          footer .container > div > div:first-child {
+            grid-template-columns: 2fr 1fr 1fr;
+          }
+        }
+        /* Navbar responsiveness (fuerza desktop sin burger) */
+.nav-desktop {
+  display: none;
+}
+
+.nav-toggle {
+  display: inline-flex; /* móvil: sí se ve */
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .nav-desktop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .nav-toggle {
+    display: none !important; /* desktop: NO burger */
+  }
+
+  .social {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 899px) {
+  .social {
+    display: none !important;
+  }
+}
+
+    
