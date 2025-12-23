@@ -53,23 +53,6 @@
   --grid-size: 56px;
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Si quieres mantenerlo siempre blanco, puedes borrar este bloque */
-  :root {
-    --bg: #0b0b0b;
-    --fg: #ffffff;
-    --muted: rgba(255, 255, 255, 0.72);
-    --muted-2: rgba(255, 255, 255, 0.5);
-    --line: rgba(255, 255, 255, 0.14);
-    --line-strong: rgba(255, 255, 255, 0.24);
-    --surface: #0f0f0f;
-    --surface-2: #141414;
-    --shadow: 0 12px 38px rgba(0, 0, 0, 0.5);
-    --accent: #ffffff;
-    --grid: linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-  }
-}
 
 /* Reset moderno */
 *,
@@ -105,11 +88,6 @@ body {
 /* Selección */
 ::selection {
   background: rgba(0, 0, 0, 0.14);
-}
-@media (prefers-color-scheme: dark) {
-  ::selection {
-    background: rgba(255, 255, 255, 0.18);
-  }
 }
 
 /* Links */
@@ -215,11 +193,7 @@ p.muted {
   box-shadow: var(--shadow);
   backdrop-filter: blur(8px);
 }
-@media (prefers-color-scheme: dark) {
-  .card {
-    background: rgba(15, 15, 15, 0.72);
-  }
-}
+
 
 .card-pad {
   padding: 1.25rem;
@@ -292,11 +266,7 @@ p.muted {
 .btn-ghost:hover {
   background: rgba(0, 0, 0, 0.05);
 }
-@media (prefers-color-scheme: dark) {
-  .btn-ghost:hover {
-    background: rgba(255, 255, 255, 0.08);
-  }
-}
+
 
 .icon {
   display: inline-block !important;   /* ← clave */
@@ -380,15 +350,7 @@ p.muted {
   );
   pointer-events: none;
 }
-@media (prefers-color-scheme: dark) {
-  .hero-media::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.03),
-      rgba(255, 255, 255, 0.12)
-    );
-  }
-}
+
 /* Skip link accesible (para "Saltar al contenido") */
 .skip-link {
   position: absolute;
