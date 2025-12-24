@@ -40,10 +40,10 @@ const PROJECTS: Project[] = [
     summary:
       "Reinterpretación minimalista con énfasis en proporción, ritmo de vanos y materialidad sobria.",
     images: [
-      { src: "/proyectos/p1/01.jpg", alt: "Fachada - vista 01" },
-      { src: "/proyectos/p1/02.jpg", alt: "Fachada - vista 02" },
-      { src: "/proyectos/p1/03.jpg", alt: "Fachada - vista 03" },
-      { src: "/proyectos/p1/04.jpg", alt: "Fachada - vista 04" },
+      { src: "/proyectos/p1/01.jpeg", alt: "Fachada - vista 01" },
+      { src: "/proyectos/p1/02.jpeg", alt: "Fachada - vista 02" },
+      { src: "/proyectos/p1/03.jpeg", alt: "Fachada - vista 03" },
+      { src: "/proyectos/p1/04.jpeg", alt: "Fachada - vista 04" },
     ],
   },
   {
@@ -55,40 +55,40 @@ const PROJECTS: Project[] = [
     summary:
       "Zonificación clara para sala–comedor–cocina con iluminación cuidada y continuidad de materiales.",
     images: [
-      { src: "/proyectos/p2/01.jpg", alt: "Área social - vista 01" },
-      { src: "/proyectos/p2/02.jpg", alt: "Área social - vista 02" },
-      { src: "/proyectos/p2/03.jpg", alt: "Área social - vista 03" },
-      { src: "/proyectos/p2/04.jpg", alt: "Área social - vista 04" },
+      { src: "/proyectos/p2/01.jpeg", alt: "Área social - vista 01" },
+      { src: "/proyectos/p2/02.jpeg", alt: "Área social - vista 02" },
+      { src: "/proyectos/p2/03.jpeg", alt: "Área social - vista 03" },
+      { src: "/proyectos/p2/04.jpeg", alt: "Área social - vista 04" },
     ],
   },
   {
     id: "p3",
-    title: "Proyecto 03 — Proyecto Arquitectónico Completo",
+    title: "Proyecto 03 — Paquete 03",
     category: "Proyecto completo",
     location: "MX / USA",
     year: "2024",
     summary:
-      "Desarrollo integral con coherencia interior–exterior y entregables definidos por etapas.",
+      "Desarrollo integral exterior y entregables definidos por etapas.",
     images: [
-      { src: "/proyectos/p3/01.jpg", alt: "Proyecto completo - vista 01" },
-      { src: "/proyectos/p3/02.jpg", alt: "Proyecto completo - vista 02" },
-      { src: "/proyectos/p3/03.jpg", alt: "Proyecto completo - vista 03" },
-      { src: "/proyectos/p3/04.jpg", alt: "Proyecto completo - vista 04" },
+      { src: "/proyectos/p3/01.jpeg", alt: "Proyecto Paquete 03 - vista 01" },
+      { src: "/proyectos/p3/02.jpeg", alt: "Proyecto Paquete 03 - vista 02" },
+      { src: "/proyectos/p3/03.jpeg", alt: "Proyecto Paquete 03 - vista 03" },
+      { src: "/proyectos/p3/04.jpeg", alt: "Proyecto Paquete 03 - vista 04" },
     ],
   },
   {
     id: "p4",
-    title: "Proyecto 04 — Visualización 3D",
-    category: "Renders 3D",
+    title: "Proyecto 04 — Proyecto Arquitectónico Completo",
+    category: "Proyecto completo",
     location: "USA",
     year: "2024",
     summary:
-      "Renders fotorrealistas para validación de diseño y presentación con atmósfera editorial.",
+      "Desarrollo integral con coherencia interior–exterior y entregables definidos por etapas.",
     images: [
-      { src: "/proyectos/p4/01.jpg", alt: "Renders 3D - vista 01" },
-      { src: "/proyectos/p4/02.jpg", alt: "Renders 3D - vista 02" },
-      { src: "/proyectos/p4/03.jpg", alt: "Renders 3D - vista 03" },
-      { src: "/proyectos/p4/04.jpg", alt: "Renders 3D - vista 04" },
+      { src: "/proyectos/p4/01.jpeg", alt: "Proyecto completo - vista 01" },
+      { src: "/proyectos/p4/02.jpeg", alt: "Proyecto completo - vista 02" },
+      { src: "/proyectos/p4/03.jpeg", alt: "Proyecto completo - vista 03" },
+      { src: "/proyectos/p4/04.jpeg", alt: "Proyecto completo - vista 04" },
     ],
   },
 ];

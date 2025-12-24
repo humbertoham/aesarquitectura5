@@ -54,23 +54,23 @@ export default function Footer() {
             {/* Contact */}
             <div style={{ display: "grid", gap: "0.75rem" }}>
               <a
-                href="mailto:contacto@aesarquitectos.com"
+                href="mailto:aesaarquitectos@gmail.com"
                 className="footer-link"
               >
                 <FiMail className="icon" />
-                contacto@aesarquitectos.com
+                aesaarquitectos@gmail.com
               </a>
 
               <span className="footer-link">
                 <FiPhone className="icon" />
-                México · Atención en línea
+                +52 1 221 767 7185
               </span>
             </div>
 
             {/* Social */}
             <div style={{ display: "flex", gap: "0.75rem" }}>
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/aesarquitectos"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
@@ -80,7 +80,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/AESarquitectura"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"

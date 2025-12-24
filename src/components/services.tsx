@@ -97,7 +97,7 @@ export default function Services() {
 
                 {/* CTA */}
                 <a
-                  href="#contacto"
+                  href="/contacto"
                   className="inline-flex items-center gap-2 text-[0.95rem] font-medium"
                 >
                   Solicitar cotización

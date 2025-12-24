@@ -116,7 +116,7 @@ export default function ServiceArea() {
               metros cuadrados (si aplica) y referencias visuales.
             </p>
 
-            <a href="#contacto" className="btn btn-primary">
+            <a href="/contacto" className="btn btn-primary">
               Iniciar cotización
               <FiArrowUpRight className="icon" aria-hidden />
             </a>

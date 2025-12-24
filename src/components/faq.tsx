@@ -79,7 +79,7 @@ export default function FAQ({
   title = "Preguntas frecuentes",
   subtitle = "Transparencia desde el inicio: proceso, entregables y tiempos.",
   items = DEFAULT_ITEMS,
-  whatsappHref = "https://wa.me/",
+  whatsappHref = "https://api.whatsapp.com/send?phone=5212217677185",
 }: FAQProps) {
   const reduce = useReducedMotion();
   const baseId = useId();

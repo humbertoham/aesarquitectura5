@@ -31,8 +31,8 @@ export default function Hero({
   brand = "AES Arquitectos",
   headline = "Arquitectura y visualización profesional, 100% en línea.",
   subhead = "Diseñamos fachadas, áreas sociales y proyectos completos con un proceso claro, entregables listos para construir y comunicación constante.",
-  whatsappHref = "https://wa.me/",
-  servicesHref = "#servicios",
+  whatsappHref = "https://api.whatsapp.com/send?phone=5212217677185",
+  servicesHref = "/servicios",
   imageSrc,
   imageAlt = "Proyecto arquitectónico – renders y planos",
 }: HeroProps) {

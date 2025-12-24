@@ -17,8 +17,8 @@ type CTAProps = {
 export default function CTA({
   title = "¿Listo para comenzar tu proyecto?",
   description = "Cuéntanos tu idea y recibe una propuesta clara, con tiempos y entregables definidos.",
-  primaryHref = "https://wa.me/",
-  secondaryHref = "#servicios",
+  primaryHref = "https://api.whatsapp.com/send?phone=5212217677185",
+  secondaryHref = "/servicios",
 }: CTAProps) {
   const reduce = useReducedMotion();
 

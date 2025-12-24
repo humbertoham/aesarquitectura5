@@ -2,9 +2,6 @@
 import type { Metadata } from "next";
 
 // ✅ Estos sí los usas
-import CTA from "@/components/cta";
-import FAQ from "@/components/faq";
-import ServiceArea from "@/components/servicesarea";
 
 export const metadata: Metadata = {
   title: "Servicios | AES Arquitectos",
@@ -251,7 +248,7 @@ export default function ServiciosPage() {
               <div className="divider my-5" />
 
               <a
-                href="https://wa.me/"
+                href="https://api.whatsapp.com/send?phone=5212217677185"
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-primary w-full justify-center"
@@ -340,7 +337,7 @@ export default function ServiciosPage() {
                     <div className="divider my-5" />
 
                     <div className="flex flex-wrap gap-3">
-                      <a href="#contacto" className="btn btn-primary">
+                      <a href="/contacto" className="btn btn-primary">
                         Cotizar este servicio
                       </a>
                       <a href="#faq" className="btn btn-ghost">
@@ -355,44 +352,9 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* CTA (componente) */}
-      <CTA />
-
-      {/* FAQ (componente) */}
-      <FAQ />
-
-      {/* Service Area (componente con mapa) */}
-      <ServiceArea />
-
+    
       {/* CTA final / contacto */}
-      <section id="contacto" className="section">
-        <div className="container">
-          <div className="card card-pad">
-            <p className="kicker">Contacto</p>
-            <h2 className="mt-2 max-w-[26ch]">
-              Envíanos tu información y te mandamos una propuesta clara.
-            </h2>
-            <p className="muted mt-3 max-w-[70ch]">
-              Ubicación, tipo de proyecto, m² (si aplica), fotos/medidas y referencias
-              visuales (links). Con eso definimos alcance, entregables y tiempos.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                className="btn btn-primary"
-                href="https://wa.me/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Cotizar por WhatsApp
-              </a>
-              <a className="btn btn-ghost" href="#lista">
-                Volver a servicios
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      
     </main>
   );
 }

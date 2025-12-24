@@ -37,7 +37,7 @@ const DEFAULTS: FormState = {
  * Formato recomendado para México: 521 + 10 dígitos (sin +, sin espacios)
  * Ej: "5219611234567"
  */
-const WHATSAPP_NUMBER = "521XXXXXXXXXX";
+const WHATSAPP_NUMBER = "5212217677185";
 
 export default function ContactoPage() {
   const reduce = useReducedMotion();

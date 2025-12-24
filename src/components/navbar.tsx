@@ -4,7 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiMenu, FiX, FiArrowUpRight, FiInstagram, FiPhone } from "react-icons/fi";
+import {
+  FiMenu,
+  FiX,
+  FiArrowUpRight,
+  FiInstagram,
+  FiFacebook,
+  FiMessageCircle,
+} from "react-icons/fi";
 
 type NavItem = { label: string; href: string };
 
@@ -70,7 +77,7 @@ export default function Navbar() {
               alignItems: "center",
               justifyContent: "space-between",
               height: "72px",
-              gap: "16px",
+              gap: "12px",
             }}
           >
             {/* Brand */}
@@ -90,6 +97,7 @@ export default function Navbar() {
                   display: "grid",
                   placeItems: "center",
                   background: "rgba(255,255,255,0.85)",
+                  flex: "0 0 auto",
                 }}
               >
                 <span style={{ fontWeight: 700, letterSpacing: "-0.02em" }}>
@@ -111,7 +119,7 @@ export default function Navbar() {
             <nav
               className="nav-desktop"
               aria-label="Navegación principal"
-              style={{  alignItems: "center", gap: 6 }}
+              style={{ alignItems: "center", gap: 6 }}
             >
               {navItems.map((item) => {
                 const active = pathname === item.href;
@@ -150,10 +158,10 @@ export default function Navbar() {
             </nav>
 
             {/* Right actions */}
-            <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              <div className="social" style={{  gap: 8 }}>
+            <div className="actions" style={{ display: "flex", alignItems: "center", gap: 10 }}>
+              <div className="social" style={{ gap: 8 }}>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/aesarquitectos"
                   target="_blank"
                   rel="noreferrer"
                   className="btn btn-ghost"
@@ -163,18 +171,25 @@ export default function Navbar() {
                   <FiInstagram className="icon" />
                 </a>
                 <a
-                  href="tel:+52"
+                  href="https://www.facebook.com/AESarquitectura"
                   className="btn btn-ghost"
-                  aria-label="Llamar"
+                  aria-label="Facebook"
                   style={{ padding: "10px 12px" }}
                 >
-                  <FiPhone className="icon" />
+                  <FiFacebook className="icon" />
                 </a>
               </div>
 
-              <Link href="/contacto" className="btn btn-primary" style={{ whiteSpace: "nowrap" }}>
+              {/* En móvil: CTA compacto (icon) para que no empuje el burger */}
+              <Link
+                href="/contacto"
+                className="btn btn-primary cta-desktop"
+                style={{ whiteSpace: "nowrap" }}
+              >
                 Cotizar <FiArrowUpRight className="icon" />
               </Link>
+
+             
 
               {/* Mobile toggle */}
               <button
@@ -184,13 +199,14 @@ export default function Navbar() {
                 aria-expanded={open}
                 style={{ padding: "10px 12px" }}
               >
-                {open ? <FiX className="icon" /> : <FiMenu className="icon" />}
+                {open ? <FiX className="icon icon-lg" /> : <FiMenu className="icon icon-lg" />}
               </button>
             </div>
           </div>
         </div>
 
         <style jsx>{`
+          /* desktop */
           @media (min-width: 900px) {
             .nav-desktop {
               display: flex !important;
@@ -201,10 +217,42 @@ export default function Navbar() {
             .social {
               display: flex !important;
             }
+            .cta-desktop {
+              display: inline-flex !important;
+            }
+            .cta-mobile {
+              display: none !important;
+            }
           }
+
+          /* mobile */
+          @media (max-width: 899px) {
+            .nav-desktop {
+              display: none !important;
+            }
+            .social {
+              display: none !important;
+            }
+            .cta-desktop {
+              display: none !important;
+            }
+            .cta-mobile {
+              display: inline-flex !important;
+              align-items: center;
+              justify-content: center;
+              border-radius: 999px;
+            }
+          }
+
           .nav-link:hover {
             color: var(--fg) !important;
             background: rgba(0, 0, 0, 0.04);
+          }
+
+          /* agranda el icon del burger sin tocar tu clase .icon global */
+          :global(.icon-lg) {
+            width: 20px;
+            height: 20px;
           }
         `}</style>
       </header>
@@ -225,6 +273,10 @@ export default function Navbar() {
               background: "rgba(255,255,255,0.92)",
               backdropFilter: "blur(12px)",
               WebkitBackdropFilter: "blur(12px)",
+              display: "flex",
+              flexDirection: "column",
+              // IMPORTANTE: que el overlay pueda scrollear
+              overflow: "hidden",
             }}
             aria-label="Menú móvil"
           >
@@ -237,6 +289,7 @@ export default function Navbar() {
                 justifyContent: "space-between",
                 padding: "0 16px",
                 borderBottom: "1px solid rgba(0,0,0,0.10)",
+                flex: "0 0 auto",
               }}
             >
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
@@ -267,17 +320,19 @@ export default function Navbar() {
                 aria-label="Cerrar menú"
                 style={{ padding: "10px 12px" }}
               >
-                <FiX className="icon" />
+                <FiX className="icon icon-lg" />
               </button>
             </div>
 
-            {/* content */}
+            {/* scrollable content */}
             <div
               style={{
-                height: "calc(100vh - 72px)",
-                display: "flex",
-                flexDirection: "column",
+                flex: "1 1 auto",
+                overflowY: "auto",
+                WebkitOverflowScrolling: "touch",
                 padding: 16,
+                // deja espacio para que no se pegue al bottom safe-area
+                paddingBottom: "calc(16px + env(safe-area-inset-bottom))",
               }}
             >
               <motion.div
@@ -326,31 +381,38 @@ export default function Navbar() {
                 })}
               </motion.div>
 
-              {/* bottom actions pinned */}
-              <div style={{ marginTop: "auto", paddingTop: 16 }}>
+              {/* bottom actions (ya NO se cortan; quedan con buen padding y el contenedor scrollea) */}
+              <div style={{ marginTop: 16 }}>
                 <div
                   style={{
-                    display: "flex",
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr",
                     gap: 10,
-                    alignItems: "center",
-                    justifyContent: "space-between",
                   }}
                 >
                   <a
-                    href="https://www.instagram.com/"
+                    href="https://www.instagram.com/aesarquitectos/"
                     target="_blank"
                     rel="noreferrer"
                     className="btn btn-ghost"
-                    style={{ flex: 1, justifyContent: "center" }}
+                    style={{
+                      justifyContent: "center",
+                      padding: "12px 12px",
+                      borderRadius: 14,
+                    }}
                   >
                     <FiInstagram className="icon" /> Instagram
                   </a>
                   <a
-                    href="tel:+52"
+                    href="https://www.facebook.com/AESarquitectura"
                     className="btn btn-ghost"
-                    style={{ flex: 1, justifyContent: "center" }}
+                    style={{
+                      justifyContent: "center",
+                      padding: "12px 12px",
+                      borderRadius: 14,
+                    }}
                   >
-                    <FiPhone className="icon" /> Llamar
+                    <FiFacebook className="icon" /> Facebook
                   </a>
                 </div>
 
@@ -358,7 +420,12 @@ export default function Navbar() {
                   <Link
                     href="/contacto"
                     className="btn btn-primary"
-                    style={{ width: "100%", justifyContent: "center" }}
+                    style={{
+                      width: "100%",
+                      justifyContent: "center",
+                      padding: "14px 14px",
+                      borderRadius: 16,
+                    }}
                   >
                     Cotizar <FiArrowUpRight className="icon" />
                   </Link>
