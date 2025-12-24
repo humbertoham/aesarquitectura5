@@ -222,7 +222,7 @@ export default function Hero({
 
               {/* Floating badge */}
               <div className="pointer-events-none absolute left-4 top-4 rounded-full border bg-[var(--bg)] px-3 py-1 text-[0.85rem] text-[var(--muted)] shadow">
-                Estudio de arquitectura · Online
+                Estudio de arquitectura
               </div>
             </div>
           </motion.div>

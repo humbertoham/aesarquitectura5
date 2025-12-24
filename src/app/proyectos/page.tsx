@@ -336,15 +336,12 @@ export default function ProyectosPage() {
                 <div className="flex items-center gap-2">
                   <button type="button" className="btn btn-ghost" onClick={goPrev}>
                     <FiChevronLeft className="icon" aria-hidden />
-                    Anterior
                   </button>
                   <button type="button" className="btn btn-ghost" onClick={goNext}>
-                    Siguiente
                     <FiChevronRight className="icon" aria-hidden />
                   </button>
                   <button type="button" className="btn btn-primary" onClick={closeModal}>
                     <FiX className="icon" aria-hidden />
-                    Cerrar
                   </button>
                 </div>
               </div>
