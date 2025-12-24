@@ -60,7 +60,7 @@ export default function ServiceArea() {
                   rel="noreferrer"
                   className="btn btn-ghost"
                 >
-                  Abrir en Maps
+                  Abrir
                   <FiArrowUpRight className="icon" aria-hidden />
                 </a>
               </div>

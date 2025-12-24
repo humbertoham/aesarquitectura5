@@ -183,7 +183,7 @@ export default function Navbar() {
               {/* En móvil: CTA compacto (icon) para que no empuje el burger */}
               <Link
                 href="/contacto"
-                className="btn btn-primary cta-desktop"
+                className="btn btn-primary  cta-desktop"
                 style={{ whiteSpace: "nowrap" }}
               >
                 Cotizar <FiArrowUpRight className="icon" />

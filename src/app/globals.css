@@ -423,4 +423,18 @@ p.muted {
   }
 }
 
+/* Desktop */
+@media (min-width: 900px) {
+  .cta-desktop {
+    display: inline-flex;
+  }
+}
+
+/* Mobile */
+@media (max-width: 899px) {
+  .cta-desktop {
+    display: none;
+  }
+}
+
     
